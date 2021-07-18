@@ -1,0 +1,29 @@
+From abd2e87573894c8593a63e4fe892e08ab13daa2b Mon Sep 17 00:00:00 2001
+From: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+Date: Sun, 18 Jul 2021 16:03:35 +0900
+Subject: [PATCH 2/2] Change netlink family ID `NETLINK_ICCOM`
+
+Since Linux-v4.11, netlink family ID 22 is reserved for NETLINK_SMC.
+This patch changes NETLINK_ICCOM number from 22 to 23.
+
+Signed-off-by: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+---
+ include/iccom.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/iccom.h b/include/iccom.h
+index 58dbdae..44e01e2 100644
+--- a/include/iccom.h
++++ b/include/iccom.h
+@@ -34,7 +34,7 @@
+ 
+ /* -------------------- BUILD TIME CONFIGURATION ----------------------- */
+ // ICCom netlink family ID
+-#define NETLINK_ICCOM 22
++#define NETLINK_ICCOM 23
+ 
+ // TODO: grab this information from kernel include
+ //  OR:  if we would have that in the device tree defined we could
+-- 
+2.25.1
+
