@@ -1,0 +1,35 @@
+From 1adbe0e3507004e925c342623162c8fea32b11e6 Mon Sep 17 00:00:00 2001
+From: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+Date: Wed, 19 May 2021 00:34:48 +0900
+Subject: [PATCH 2/3] Fix Kconfig
+
+Signed-off-by: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+---
+ src/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Kconfig b/src/Kconfig
+index 01707bf..32e9caf 100644
+--- a/src/Kconfig
++++ b/src/Kconfig
+@@ -58,7 +58,7 @@ config BOSCH_ICCOM_DEBUG_CHANNEL
+         If set to -1, information of all channels will
+         be provided.
+ 
+-config ICCOM_DEBUG_MESSAGES_PRINTOUT_MAX_COUNT
++config BOSCH_ICCOM_DEBUG_MESSAGES_PRINTOUT_MAX_COUNT
+     int "The number of RX messages to printout by xfer end"
+     depends on BOSCH_ICCOM_DEBUG
+     default 5
+@@ -68,7 +68,7 @@ config ICCOM_DEBUG_MESSAGES_PRINTOUT_MAX_COUNT
+         -1 means unlimited;
+         0  means nothing;
+ 
+-config ICCOM_DEBUG_PACKAGES_PRINTOUT_MAX_COUNT
++config BOSCH_ICCOM_DEBUG_PACKAGES_PRINTOUT_MAX_COUNT
+     int "The number of packages to printout by xfer end"
+     depends on BOSCH_ICCOM_DEBUG
+     default 5
+-- 
+2.25.1
+

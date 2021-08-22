@@ -1,0 +1,40 @@
+From 80436169ef34b55bf5791d21bd85638c6e1e0ec5 Mon Sep 17 00:00:00 2001
+From: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+Date: Sun, 22 Aug 2021 22:08:47 +0900
+Subject: [PATCH 3/3] Fix SYMSPI_ERROR_TYPES_COUNT
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Corrected the number of error types, because the following warning is
+occured:
+
+warning: array subscript 14 is above array bounds of ‘struct symspi_error_rec[14]’ [-Warray-bounds]
+ 1333 |  symspi->p->errors[idx].err_num = SYMSPI_ERROR_##ERR_NAME; \
+      |  ~~~~~~~~~~~~~~~~~^~~~~
+
+note: in expansion of macro ‘SYMSPI_ERR_REC’
+ 1354 |  SYMSPI_ERR_REC(14, WORKQUEUE_INIT, 0);
+      |  ^~~~~~~~~~~~~~
+
+Signed-off-by: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+---
+ linux-symspi/src/symspi.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/linux-symspi/src/symspi.h b/src/symspi.h
+index 6fd6a4a..fcd056c 100644
+--- a/linux-symspi/src/symspi.h
++++ b/linux-symspi/src/symspi.h
+@@ -35,7 +35,7 @@
+ 
+ 
+ // NOTE: Keep updated if adding/removing error type
+-#define SYMSPI_ERROR_TYPES_COUNT 14
++#define SYMSPI_ERROR_TYPES_COUNT 15
+ 
+ 
+ // no error code, keep it 0
+-- 
+2.25.1
+
