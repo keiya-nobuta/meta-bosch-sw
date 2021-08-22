@@ -1,0 +1,36 @@
+From 9625509d3fecb37557cec0cd5ddde7a897667169 Mon Sep 17 00:00:00 2001
+From: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+Date: Sun, 30 May 2021 14:54:41 +0900
+Subject: [PATCH 5/5] Change various to match v5.8.y
+
+Signed-off-by: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+---
+ linux-symspi/src/symspi.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/linux-symspi/src/symspi.c b/src/symspi.c
+index 88ab09a..e0e2ffe 100644
+--- a/linux-symspi/src/symspi.c
++++ b/linux-symspi/src/symspi.c
+@@ -764,7 +764,7 @@ struct symspi_dev_private {
+ 
+ 	struct proc_dir_entry *proc_root;
+ 	struct proc_dir_entry *info_file;
+-	struct file_operations info_ops;
++	struct proc_ops info_ops;
+ 
+ 	struct symspi_info info;
+ };
+@@ -3064,8 +3064,7 @@ static inline int __symspi_info_init(struct symspi_dev *symspi)
+ 
+ 	// info access operations
+ 	memset(&symspi->p->info_ops, 0, sizeof(symspi->p->info_ops));
+-	symspi->p->info_ops.read  = &__symspi_info_read;
+-	symspi->p->info_ops.owner = THIS_MODULE;
++	symspi->p->info_ops.proc_read  = &__symspi_info_read;
+ 
+ 	if (IS_ERR_OR_NULL(symspi->p->proc_root)) {
+ 		symspi_err("failed to create info proc entry:"
+-- 
+2.25.1
+
