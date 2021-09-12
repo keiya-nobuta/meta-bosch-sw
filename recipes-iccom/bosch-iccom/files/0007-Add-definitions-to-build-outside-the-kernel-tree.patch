@@ -1,0 +1,30 @@
+From 7a1a1a0db439424dfb3ae47afd93462709532ceb Mon Sep 17 00:00:00 2001
+From: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+Date: Sun, 5 Sep 2021 21:01:17 +0900
+Subject: [PATCH 7/7] Add definitions to build outside the kernel-tree
+
+Signed-off-by: Keiya Nobuta <nobuta.keiya@fujitsu.com>
+---
+ src/Makefile | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/Makefile b/src/Makefile
+index 27d5719..ce7d62d 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -5,6 +5,12 @@
+ 
+ ccflags-y := -std=gnu99 -Wno-declaration-after-statement
+ 
++ifeq ($(CONFIG_BOSCH_ICCOM_TRANSPORT_SYMSPI), m)
++    ccflags-y += -DCONFIG_BOSCH_ICCOM_TRANSPORT_SYMSPI
++else ifeq ($(CONFIG_BOSCH_ICCOM_TRANSPORT_DUMPER), m)
++    ccflags-y += -DCONFIG_BOSCH_ICCOM_TRANSPORT_DUMPER
++endif
++
+ ccflags-$(CONFIG_BOSCH_ICCOM_DEBUG) += -DICCOM_DEBUG
+ ifeq ($(CONFIG_BOSCH_ICCOM_DEBUG), y)
+     ccflags-y += -DDICCOM_DEBUG_CHANNEL=$(CONFIG_BOSCH_ICCOM_DEBUG_CHANNEL)
+-- 
+2.25.1
+

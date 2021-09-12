@@ -23,6 +23,8 @@ SRC_URI += "\
     file://0003-Change-to-use-atomic_-instead-of-built-in-functions.patch \
     file://0004-Kconfig-update-for-kbuild-v5.8-2.patch \
     file://0005-Change-various-to-match-v5.8.y.patch \
+    file://0006-Add-transport-layer-dumper.patch \
+    file://0007-Add-definitions-to-build-outside-the-kernel-tree.patch \
     file://symspi-0001-Change-various-to-match-v5.4.y.patch \
     file://symspi-0002-Change-to-use-atomic_-instead-of-built-in-functions.patch \
     file://symspi-0003-Fix-SYMSPI_ERROR_TYPES_COUNT.patch \
