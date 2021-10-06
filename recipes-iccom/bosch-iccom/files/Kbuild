@@ -1,1 +1,1 @@
-obj-y := iccom/ symspi/
+obj-y := iccom/
