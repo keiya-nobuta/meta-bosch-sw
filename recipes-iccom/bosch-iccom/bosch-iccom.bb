@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "\
     file://linux-full-duplex-interface/LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
     "
 
-SRCREV_iccom = "7a1a1a0db439424dfb3ae47afd93462709532ceb"
+SRCREV_iccom = "00982df78435c0fd0fd07c157973e6b3fb33f028"
 SRCREV_header = "29cab9e103367d86ed728696eebd06502ae55530"
 
 S = "${WORKDIR}/git"
